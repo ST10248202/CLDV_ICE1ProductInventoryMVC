@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Product Inventory App</h1>
+    <p class="lead">Easily view and manage your product inventory</p>
+
+    <div class="card mt-5">
+        <div class="card-body">
+            <h5 class="card-title">Total Products</h5>
+            @if ((int)ViewBag.ProductCount == 4)
+            {
+                <p class="card-text display-1 text-danger">Maximum products reached</p>
+            }
+            else
+            {
+                <p class="card-text display-1 @(ViewBag.ProductCount >= 4 / 2 ? "text-danger" : "")">@ViewBag.ProductCount</p>
+                <p class="card-text">products stored</p>
+                @if ((int)ViewBag.ProductCount >= 4 / 2)
+                {
+                    <p class="text-danger">Warning: You have reached half of the maximum number of products</p>
+                }
+            }
+        </div>
+    </div>
+</div>
